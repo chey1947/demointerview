@@ -1,0 +1,32 @@
+<md-grid-list cols='2' >
+  <md-grid-tile >
+    <md-grid-tile-header>{{moviename.name}}</md-grid-tile-header>
+    <div>
+      <img src='https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{moviedetailsdata.poster_path}}'>
+    </div>
+
+  </md-grid-tile>
+  <md-grid-tile>
+    <md-grid-tile-header>Overview </md-grid-tile-header>
+    <h3 md-line>{{moviedetailsdata.overview}}</h3>
+    <h3 md-line></h3>
+  </md-grid-tile>
+
+</md-grid-list>
+<md-toolbar color='primary'>
+  <h3 md-line>Movie Cast</h3>
+</md-toolbar>
+    <md-grid-list cols='10' >
+      <md-grid-tile *ngFor='let data of movecastdata'>
+      <div *ngIf= 'data.profile_path != null'>
+        <img  src='https://image.tmdb.org/t/p/w66_and_h66_bestv2{{data.profile_path}}' alt='{{data.name}}'>
+      </div>
+      <span *ngIf= 'data.profile_path == null'> {{data.name}} </span>
+      <md-grid-tile-footer>
+        <h3 md-line>{{data.name}}</h3>
+        <button md-icon-button (click)='castdetails(data)'>
+          <md-icon>info</md-icon>
+        </button>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+  </md-grid-list>

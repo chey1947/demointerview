@@ -1,0 +1,30 @@
+<md-grid-list cols='3' rowHeight='400px'  >
+  <md-grid-tile >
+    <img src= '{{drawacarddealer.image}}' alt={{drawacarddealer.image}}>
+      <md-grid-tile-header>
+          <h3 md-line>DEALER</h3>
+      </md-grid-tile-header>
+        <md-grid-tile-footer>  </md-grid-tile-footer>
+  </md-grid-tile>
+
+  <md-grid-tile >
+    <button md-raised-button color="primary" (click)='higher( drawacarddealer.value, drawacarduser.value )' *ngIf='showuser' >Higher </button>
+    <button md-raised-button color="primary"(click)='lower( drawacarddealer.value, drawacarduser.value )' *ngIf='showuser'>Lower </button>
+    <div *ngIf='showcard'>
+      <img src= '{{drawacarduser.image}}' alt={{drawacarduser.image}}>
+    </div>
+    <md-grid-tile-header>
+      <h3 md-line>USER</h3>
+      <button md-raised-button color="primary"(click)='tryAgain( )' *ngIf='showcard' >Try again </button>
+    </md-grid-tile-header>
+    <md-grid-tile-footer>
+    </md-grid-tile-footer>
+  </md-grid-tile>
+
+    <md-grid-tile >
+      <md-grid-tile-header>   </md-grid-tile-header>
+      <h3> <span class='resuls'>{{resulst}}</span> </h3>
+      <md-grid-tile-footer>   </md-grid-tile-footer>
+    </md-grid-tile >
+
+</md-grid-list>
