@@ -15,7 +15,8 @@ export class CarddataService {
   }
 
   fetchData () {
-  return this.http.get('https://deckofcardsapi.com/api/deck/new/draw/?count=2').map(
+  return this.http.get('https://deckofcardsapi.com/api/deck/new/draw/?count=2')
+  .map(
     (res) => res.json()
   )
 
